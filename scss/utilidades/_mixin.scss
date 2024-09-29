@@ -1,0 +1,17 @@
+@mixin flex{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+@mixin flex-column($justify: flex-start, $align: stretch) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin border-radius($radius: 5px) {
+    border-radius: $radius;
+}
+

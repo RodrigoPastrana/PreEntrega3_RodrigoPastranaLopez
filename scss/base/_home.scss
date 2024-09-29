@@ -1,0 +1,460 @@
+@import "../utilidades/variables";
+@import "../utilidades/mixin";
+
+
+/*Nesting*/
+header {
+    background-color: $color-fondo;
+    position: relative; 
+    z-index: 1; 
+
+    .navbar-collapse {
+        @include border-radius(10px);
+        padding: $padding-base;
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.75); 
+        z-index: 1000; 
+        display: none; 
+        
+        &.show {
+            display: block; // Cambiado a &.show para un mejor enfoque
+        }
+    }
+
+    @media (min-width: 992px) {
+        .navbar-collapse {
+            position: static;
+            background-color: transparent;
+            display: flex;
+            margin-top: 0px;
+        }
+    }
+
+    .nav-link {
+        color: $color-texto; // Color de texto
+        &:hover {
+            color: $color-secundario; // Cambiar color al hacer hover
+        }
+    }
+
+    img {
+        width: 100px;
+        height: auto;
+    }
+
+    nav {
+        flex-grow: 1;
+
+        ul {
+            list-style: none;
+            @include flex;
+            justify-content: flex-end;
+
+            li {
+                margin-left: 20px;
+                font-size: 18px;
+                padding: 10px 15px;
+
+                a {
+                    text-decoration: none;
+                    color: whitesmoke;
+
+                    &:hover {
+                        color: #ffcc00;
+                    }
+                }
+            }
+        }
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .menu-icon {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            display: none; // Se ocultará hasta que se active el menú hamburguesa
+            width: 100%;
+            background-color: #00000088; 
+            position: absolute;
+            top: 60px; 
+            right: 0;
+            z-index: 1000;
+
+            ul {
+                flex-direction: column;
+                align-items: flex-end; 
+                @include flex;
+                width: 100%;
+
+                li {
+                    margin: 0;
+                    padding: 10px; 
+
+                    a {
+                        color: whitesmoke; 
+
+                        &:hover {
+                            color: #ffcc00; 
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu-icon {
+            display: block; // Mostrar el ícono de menú en móviles
+        }
+
+        .menu-toggle {
+            &:checked {
+              + .menu-icon {
+                + nav {
+                  display: flex;
+                }
+              }
+            }
+        }
+    }
+}
+
+
+
+main{
+    h1{
+        font-size: $font-size-titulo;
+        color: $color-titulo;
+        text-align: center;
+    }
+    .portada-container {
+        position: relative;
+        text-align: center; 
+        margin-bottom: 30px;
+        .portada {
+            display: block;
+            width: 80%; 
+            height: 550px; 
+        }
+        .titulo_historia {
+            position: absolute; 
+            top: 10%; 
+            left: 50%; 
+            transform: translateX(-50%);
+            color: white; 
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 10px; 
+            border-radius: 5px; 
+            font-size: 45px; 
+        }
+        @media (max-width: 768px){
+            .titulo_historia {
+                position: absolute; 
+                top: 10%; 
+                left: 50%; 
+                transform: translateX(-50%); 
+                color: white; 
+                background-color: rgba(0, 0, 0, 0.5); 
+                padding: 10px; 
+                border-radius: 5px;
+                font-size: 20px; 
+            }
+        }
+    }
+    @media (max-width: 768px){
+        .portada-container .portada {
+            display: block;
+            width: 100%; 
+            height: auto; 
+        }
+    }
+    .portada-container2 {
+        position: relative;
+        text-align: center; 
+        margin-bottom: 30px;
+        .portada-trofeos {
+            display: block;
+            width: 70%; 
+            height: 600px; 
+        }
+        .portada-trofeos {//problemas, esta repetida con la de arriba
+            height: 650px;
+            display: block;
+            margin: 0 auto;
+            width: 1000px;
+            text-align: center;
+        }
+        .titulo-trofeos {
+            position: absolute; 
+            top: 10%; 
+            left: 50%; 
+            transform: translateX(-50%);
+            color: white; 
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 10px; 
+            border-radius: 5px; 
+            font-size: 45px; 
+        }
+        @media (max-width: 768px){
+            .titulo-trofeos {
+                position: absolute; 
+                top: 10%; 
+                left: 50%; 
+                transform: translateX(-50%); 
+                color: white; 
+                background-color: rgba(0, 0, 0, 0.5); 
+                padding: 10px; 
+                border-radius: 5px;
+                font-size: 25px; 
+            }
+        }
+    }
+    @media (max-width: 768px){
+        .portada-container2 .portada-trofeos {
+            display: block;
+            width: 100%; 
+            height: auto; 
+            margin-top: 50px;
+        }
+    }
+    .titulo-equipos {
+        text-align: center;
+        /*no necesita estilos si no es en mobile*/
+    }
+    /* Estilos específicos para dispositivos móviles */
+    @media (max-width: 768px) {
+        .titulo-equipos {
+            margin-top: 70px;
+        }
+        
+    }
+    .portada { //puede dar problemas porque esta en proximas disputas e historia, si da error hay que ponerlo dentro de portada-container y cambiar el nombre del class de proximas disputas
+        display: block;
+        margin: 10px auto 0;
+        max-width: 100%;    
+    }
+    @media (max-width: 768px) {
+        .portada {
+            margin-top: 55px; 
+        }
+    }
+    .container5 {
+        @include flex-column(center, center);
+        padding: $padding-base;
+        display: flex;
+        flex-direction: column; 
+        gap: 20px; 
+        .historia {
+            width: 50%; 
+            height: 500px; 
+            margin: 0 auto; 
+        }
+        .texto {
+            text-align: justify; 
+            padding: 10px 70px; 
+        }
+    }
+    @media (max-width: 768px) {
+        .container5 {
+            display: flex;
+            flex-direction: column; 
+            gap: 20px; 
+        }
+    
+        .texto {
+            margin-bottom: 20px; 
+            padding: 0 15px; 
+        }
+    
+        .historia {
+            margin-bottom: 20px; 
+            width: 80%;
+            height: auto; 
+            margin: 0 auto; 
+        }
+    }
+    .container2 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        .trofeo-item {
+            text-align: center;
+            .trofeos {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    }
+    /* Estilos para mobile */
+    @media (max-width: 768px) {
+        .container2 {
+           grid-template-columns: 1fr; 
+        }
+    }
+    .container3 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            .equipo {
+                width: 100%;
+                height: 410px;
+                margin-bottom: 10px;
+            }
+            .texto2 {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+                max-width: 100%;
+            }
+            .jugador {
+                width: 50%;
+                height: 320px;
+                margin-bottom: 25px;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        .container3 {
+            grid-template-columns: 1fr;
+        }
+    
+        .item {
+            .jugador {
+                width: 100%;
+            }
+        }
+    }
+    /* Caja de próximos partidos */
+    .contenedor-principal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        .proximos-partidos {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            height: auto;
+            margin: 20px;
+            text-align: center;
+            h2 {
+                margin-top: 0;
+                margin-bottom: 20px;
+                font-size: 1.5em;
+                text-align: center;
+            }
+            .partidos {
+                display: flex;
+                flex-direction: column;
+                .partido {
+                    border-bottom: 1px solid #ccc;
+                    padding: 10px 0;
+                    .fecha {
+                        font-weight: bold;
+                    }
+                    .competencia {
+                        font-style: italic;
+                    }
+                    .detalle {
+                        margin-top: 5px;
+                    }                    
+                }
+                .partido:last-child {//problemas capaz va dentro de .partido
+                    border-bottom: none;
+                }
+            }
+        }
+        .copas-container {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 25px; 
+            margin-top: 50px;
+            .imagen-texto {
+                display: flex;
+                flex-direction: column; 
+                align-items: center;
+                margin-bottom: 25px; 
+                .copa {
+                    width: 350px; 
+                    height: 200px; 
+                }
+                img {
+                    width: 250px; 
+                    height: 300px; 
+                    margin-bottom: 10px; 
+                }
+                p {
+                    max-width: 250px; 
+                    margin: 0; 
+                }                
+            }
+        }
+        @media (min-width: 769px) {
+            .copas-container {
+                flex-direction: row; 
+            }
+        
+            .imagen-texto {
+                flex-direction: column; 
+            }
+        }
+        /* Estilos para mobile */
+        @media (max-width: 768px) {
+            .copas-container {
+                flex-direction: column; 
+            }
+        
+            .imagen-texto {
+                align-items: center;
+            }
+        }
+    }
+}
+
+.titulo-superpuesto {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700; 
+    background-color: rgba(0, 0, 0, 0.205); 
+    padding: 10px 20px; 
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #2B2B2B;
+    color: whitesmoke;
+    text-align: center;
+    .btn-social i {
+        font-size: 24px; 
+        color: #fff; 
+    }
+}
