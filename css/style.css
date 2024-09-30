@@ -90,7 +90,7 @@ header .menu-icon {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5333333333);
     position: absolute;
-    top: 60px;
+    top: 0;
     right: 0;
     z-index: 1000;
   }
@@ -142,7 +142,7 @@ main .portada-container .portada {
 }
 main .portada-container .titulo_historia {
   position: absolute;
-  top: 10%;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
   color: white;
@@ -169,6 +169,7 @@ main .portada-container .titulo_historia {
     display: block;
     width: 100%;
     height: auto;
+    top: 10px;
   }
 }
 main .portada-container2 {
@@ -180,6 +181,7 @@ main .portada-container2 .portada-trofeos {
   display: block;
   width: 70%;
   height: 600px;
+  padding: 0 15px;
 }
 main .portada-container2 .portada-trofeos {
   height: 650px;
@@ -190,7 +192,7 @@ main .portada-container2 .portada-trofeos {
 }
 main .portada-container2 .titulo-trofeos {
   position: absolute;
-  top: 10%;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
   color: white;
@@ -217,16 +219,19 @@ main .portada-container2 .titulo-trofeos {
     display: block;
     width: 100%;
     height: auto;
-    margin-top: 50px;
+    margin-top: 0px;
+    padding: 0 15px;
   }
 }
 main .titulo-equipos {
   text-align: center;
-  /*no necesita estilos si no es en mobile*/
+  padding-top: 35px;
+  margin-bottom: 50px;
 }
 @media (max-width: 768px) {
   main .titulo-equipos {
-    margin-top: 70px;
+    margin-top: 10px;
+    margin-bottom: 30px;
   }
 }
 main .portada {
@@ -236,7 +241,8 @@ main .portada {
 }
 @media (max-width: 768px) {
   main .portada {
-    margin-top: 55px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 main .container5 {
@@ -263,16 +269,19 @@ main .container5 .texto {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 50;
+    margin: 50;
   }
-  main .texto {
+  main .container5 .texto {
     margin-bottom: 20px;
-    padding: 0 15px;
+    padding: 0 25px;
   }
-  main .historia {
+  main .container5 .historia {
     margin-bottom: 20px;
-    width: 80%;
+    width: 100%;
     height: auto;
     margin: 0 auto;
+    padding: 0 25px;
   }
 }
 main .container2 {
@@ -291,6 +300,17 @@ main .container2 .trofeo-item .trofeos {
   main .container2 {
     grid-template-columns: 1fr;
   }
+  main .container2 .trofeo-item {
+    text-align: center;
+    padding: 0 15px;
+  }
+  main .container2 .trofeo-item .trofeos {
+    width: 100%;
+    height: 300px;
+  }
+  main .container2 .trofeo-item p {
+    margin-top: 15px;
+  }
 }
 main .container3 {
   display: grid;
@@ -302,6 +322,9 @@ main .container3 .item {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+main .container3 .item h2 {
+  background-image: linear-gradient(to bottom right, white 40%, red 60%, white 40%);
 }
 main .container3 .item .equipo {
   width: 100%;
@@ -324,8 +347,23 @@ main .container3 .item .jugador {
   main .container3 {
     grid-template-columns: 1fr;
   }
-  main .item .jugador {
-    width: 100%;
+  main .container3 .item {
+    padding: 0 15px;
+  }
+  main .container3 .item h2 {
+    margin-bottom: 0px;
+    background-image: linear-gradient(to bottom right, white 40%, red 60%, white 40%);
+  }
+  main .container3 .item .equipo {
+    margin-top: 10px;
+    height: 300px;
+  }
+  main .container3 .item .texto2 {
+    text-align: justify;
+  }
+  main .container3 .item .jugador {
+    height: 200px;
+    width: 250px;
   }
 }
 main .contenedor-principal {
@@ -423,7 +461,7 @@ main .contenedor-principal .copas-container .imagen-texto p {
   color: rgb(255, 255, 255);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  background-color: rgba(0, 0, 0, 0.205);
+  background-color: rgba(0, 0, 0, 0.404);
   padding: 10px 20px;
   border-radius: 10px;
 }
