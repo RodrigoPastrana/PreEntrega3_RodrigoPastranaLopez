@@ -20,7 +20,7 @@ header {
         display: none; 
         
         &.show {
-            display: block; // Cambiado a &.show para un mejor enfoque
+            display: block;
         }
     }
 
@@ -34,9 +34,9 @@ header {
     }
 
     .nav-link {
-        color: $color-texto; // Color de texto
+        color: $color-texto;
         &:hover {
-            color: $color-secundario; // Cambiar color al hacer hover
+            color: $color-secundario; 
         }
     }
 
@@ -89,7 +89,7 @@ header {
 
     @media (max-width: 768px) {
         nav {
-            display: none; // Se ocultará hasta que se active el menú hamburguesa
+            display: none;
             width: 100%;
             background-color: #00000088; 
             position: absolute;
@@ -119,7 +119,7 @@ header {
         }
 
         .menu-icon {
-            display: block; // Mostrar el ícono de menú en móviles
+            display: block;
         }
 
         .menu-toggle {
@@ -194,7 +194,7 @@ main{
             height: 600px; 
             padding: 0 15px;
         }
-        .portada-trofeos {//problemas, esta repetida con la de arriba
+        .portada-trofeos {
             height: 650px;
             display: block;
             margin: 0 auto;
@@ -248,7 +248,7 @@ main{
         }
         
     }
-    .portada { //puede dar problemas porque esta en proximas disputas e historia, si da error hay que ponerlo dentro de portada-container y cambiar el nombre del class de proximas disputas
+    .portada {
         display: block;
         margin: 10px auto 0;
         max-width: 100%;    
@@ -418,7 +418,7 @@ main{
                         margin-top: 5px;
                     }                    
                 }
-                .partido:last-child {//problemas capaz va dentro de .partido
+                .partido:last-child {
                     border-bottom: none;
                 }
             }
